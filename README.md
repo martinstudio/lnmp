@@ -1,3 +1,7 @@
+## 克隆
+```shell
+$ git clone git@github.com:martinstudio/lnmp.git
+```
 ## 一、安装必备工具
 1.1、安装前检查是否已经安装
 ```shell
@@ -15,7 +19,7 @@ $ yum -y install gcc gcc-c++ autoconf automake install zlib zlib-devel openssl o
 ## 二、编译安装Nginx 1.4.7
 2.1、下载nginx源码包
 ```shell
-$ wget -c http://nginx.org/download/nginx-1.4.7.tar.gz
+$ /*wget -c http://nginx.org/download/nginx-1.4.7.tar.gz */
 $ tar -xzvf nginx-1.4.7.tar.gz
 $ cd nginx-1.4.7	
 $ ./configure --prefix=/usr/local/nginx
@@ -38,7 +42,7 @@ $ yum -y install libxml2 libxml2-devel
 ```
 3.2、下载php源码包
 ```shell
-$ wget -c http://php.net/get/php-7.2.6.tar.gz
+$ /*wget -c http://php.net/get/php-7.2.6.tar.gz */
 $ tar -xzvf php-7.2.6.tar.gz
 $ cd php-7.2.6
 $ ./configure  --prefix=/usr/local/php --enable-fpm --with-pdo-mysql --with-openssl --enable-mbstring
@@ -50,7 +54,12 @@ $ chmod +x ./configure
 ```
 - 报错：configure: error: libxml2 not found. Please check your libxml2 installation.
 ```shell
+更换并升级yum源到最新
 $ yum insyall libxml2-devel
+```
+- 报错：/bin/sh: /opt/lnmp/php/build/shtool: Permission denied
+```shell
+$ chmod +x /opt/lnmp/php-7.3.5/build/shtool
 ```
 3.3、创建配置文件，并将其复制到正确的位置
 ```shell
@@ -131,14 +140,14 @@ $ sudo yum install perl perl-devel autoconf
 MySQL5.7.22要求boost的版本是1.59，更高版本的不适用MySQL5.7.22
 ```shell
 $ cd /usr/local
-$ wget http://www.sourceforge.net/projects/boost/files/boost/1.59.0/boost_1_59_0.tar.gz
+$ /*wget http://www.sourceforge.net/projects/boost/files/boost/1.59.0/boost_1_59_0.tar.gz */
 $ tar zxvf boost_1_59_0.tar.gz
 $ mv boost_1_59_0 boost
 ```
 在预编译安装MySQL时要加上-DWITH_BOOST=/usr/local/boost
 4.3、下载安装cmake 3.11.3
 ```shell
-$ wget -c https://cmake.org/files/v3.11/cmake-3.11.3.tar.gz
+$ /*wget -c https://cmake.org/files/v3.11/cmake-3.11.3.tar.gz */
 $ tar -xzvf cmake-3.11.3.tar.gz
 $ cd cmake-3.11.3
 $ ./bootstrap
@@ -147,7 +156,7 @@ $ gmake && gmake install
 4.4、编译安装MySQL
 ```shell
 $ useradd -s /sbin/nologin -M mysql
-$ wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.22.tar.gz
+$ /*wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.22.tar.gz */
 $ tar zxvf mysql-5.7.22.tar.gz
 $ cd mysql
 ```
