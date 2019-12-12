@@ -1,4 +1,4 @@
-一、安装必备工具
+## 一、安装必备工具
 1.1、安装前检查是否已经安装
 find / -name nginx
 
@@ -8,7 +8,7 @@ yum remove nginx
 1.3、安装必备工具
 yum -y install gcc gcc-c++ autoconf automake install zlib zlib-devel openssl openssl-devel pcre-devel
 
-二、编译安装Nginx 1.4.7
+## 二、编译安装Nginx 1.4.7
 2.1、下载nginx源码包
 wget -c http://nginx.org/download/nginx-1.4.7.tar.gz
 tar -xzvf nginx-1.4.7.tar.gz
@@ -23,7 +23,7 @@ make && make install
 /usr/local/nginx/sbin/nginx
 /usr/local/nginx/sbin/nginx -s reload #重启命令
 
-三、编译安装PHP 7.2.6
+## 三、编译安装PHP 7.2.6
 3.1、安装依赖
 yum -y install libxml2 libxml2-devel
 
@@ -84,7 +84,7 @@ location ~* \.php$ {
 /usr/local/nginx/sbin/nginx -t
 /usr/local/nginx/sbin/nginx -s reload
 
-四、编译安装Mysql
+## 四、编译安装Mysql
 4.1、安装依赖
 sudo yum install gcc gcc-c++ pcre pcre-devel openssl openssl-devel
 sudo yum install zlib zlib-devel cmake ncurses ncurses-devel bison bison-devel
