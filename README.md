@@ -108,7 +108,7 @@ location ~* \.php$ {
 /usr/local/nginx/sbin/nginx -s reload
 ```
 
-## 四、编译安装Mysql
+## 四、编译安装MySQL
 4.1、安装依赖
 ```shell
 sudo yum install gcc gcc-c++ pcre pcre-devel openssl openssl-devel
@@ -137,20 +137,10 @@ cd cmake-3.11.3
 gmake && gmake install
 ```
 4.4、编译安装MySQL
-添加MySQL用户
 ```shell
 useradd -s /sbin/nologin -M mysql
-```
-下载MySQL
-```shell
 wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.22.tar.gz
-```
-解压MySQL
-```shell
 tar zxvf mysql-5.7.22.tar.gz
-```
-进到MySQL目录
-```shell
 cd mysql
 ```
 预编译
