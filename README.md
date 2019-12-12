@@ -29,7 +29,7 @@ make && make install
 ```shell
 /usr/local/nginx/sbin/nginx
 /usr/local/nginx/sbin/nginx -s reload #重启命令
-```shell
+```
 
 ## 三、编译安装PHP 7.2.6
 3.1、安装依赖
