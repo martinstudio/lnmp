@@ -44,6 +44,14 @@ $ cd php-7.2.6
 $ ./configure  --prefix=/usr/local/php --enable-fpm --with-pdo-mysql --with-openssl --enable-mbstring
 $ make && make install
 ```
+问题
+```shell
+php -bash: ./configure: Permission denied
+```
+解决方案
+```shell
+$ chmod +x ./configure
+```
 3.3、创建配置文件，并将其复制到正确的位置
 ```shell
 $ cp php.ini-development /usr/local/php/php.ini
