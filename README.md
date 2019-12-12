@@ -181,9 +181,9 @@ $ vim /etc/profile
 ```shell
 export PATH=/usr/local/mysql/bin:$PATH
 export PATH=/usr/local/mysql/bin:/usr/local/mysql/lib:$PATH
-source /etc/profile
 ```
 ```shell
+source /etc/profile
 $ cd /usr/local/mysql
 $ mkdir -p /usr/local/mysql/{data,tmp,logs,pids}
 $ chown mysql.mysql /usr/local/mysql/data
