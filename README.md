@@ -1,12 +1,17 @@
 ## 一、安装必备工具
+
 1.1、安装前检查是否已经安装
-find / -name nginx
-
+```shell
+$ find / -name nginx
+```
 1.2、如果系统已经安装了nginx，那么就先卸载
+```shell
 yum remove nginx
-
+```
 1.3、安装必备工具
+```shell
 yum -y install gcc gcc-c++ autoconf automake install zlib zlib-devel openssl openssl-devel pcre-devel
+```
 
 ## 二、编译安装Nginx 1.4.7
 2.1、下载nginx源码包
