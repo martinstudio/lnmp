@@ -44,13 +44,13 @@ $ cd php-7.2.6
 $ ./configure  --prefix=/usr/local/php --enable-fpm --with-pdo-mysql --with-openssl --enable-mbstring
 $ make && make install
 ```
-问题
-```shell
-php -bash: ./configure: Permission denied
-```
-解决方案
+- 报错：php -bash: ./configure: Permission denied
 ```shell
 $ chmod +x ./configure
+```
+- 报错：configure: error: libxml2 not found. Please check your libxml2 installation.
+```shell
+$ yum insyall libxml2-devel
 ```
 3.3、创建配置文件，并将其复制到正确的位置
 ```shell
@@ -100,7 +100,7 @@ location ~* \.php$ {
     fastcgi_param   SCRIPT_NAME        $fastcgi_script_name;
 }
 ```
-报错：File not found
+- 报错：File not found
 ```shell
 location ~* \.php$ {
     fastcgi_index   index.php;
