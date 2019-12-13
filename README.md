@@ -35,16 +35,16 @@ $ /usr/local/nginx/sbin/nginx
 $ /usr/local/nginx/sbin/nginx -s reload #重启命令
 ```
 
-## 三、编译安装PHP 7.2.6
+## 三、编译安装PHP 7.3.5
 3.1、安装依赖
 ```shell
 $ yum -y install libxml2 libxml2-devel
 ```
 3.2、下载php源码包
 ```shell
-#$ wget -c http://php.net/get/php-7.2.6.tar.gz
-$ tar -xzvf php-7.2.6.tar.gz
-$ cd php-7.2.6
+#$ wget -c http://php.net/get/php-7.3.5.tar.gz
+$ tar -xzvf php-7.3.5.tar.gz
+$ cd php-7.3.5
 $ ./configure  --prefix=/usr/local/php --enable-fpm --with-pdo-mysql --with-openssl --enable-mbstring
 $ make && make install
 ```
@@ -161,7 +161,7 @@ $ gmake && gmake install
 $ useradd -s /sbin/nologin -M mysql
 #$ wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.22.tar.gz
 $ tar zxvf mysql-5.7.22.tar.gz
-$ cd mysql
+$ cd mysql-5.7.22
 ```
 预编译
 ```shell
@@ -189,11 +189,6 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \
 $ make && make install
 ```
 4.5、配置
-创建软连接
-```shell
-$ cd /usr/local
-$ ln -s mysql-5.7.22 mysql
-```
 添加到环境变量
 ```shell
 $ vim /etc/profile
@@ -250,13 +245,23 @@ $ mysqld --initialize-insecure --user=mysql --basedir=/usr/local/mysql --datadir
 启动MySQL
 ```shell
 $ service mysqld start
+$ service mysqld stop #停止
+$ service mysqld restart #重启
 ```
 登录MySQL，修改密码
-```shell
+```mysql
 $ mysql -u root -p
-$ set password for root@localhost = password('root');
+set password for root@localhost = password('root');
+GRANT ALL PRIVILEGES ON *.* TO 'web_user'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
 ```
 修改MySQL数据存放目录
 ```shell
+$ service mysqld stop
+$ mkdir -p /data/mysql/{data,logs}
+$ scp -r /usr/local/mysql/data/* /data/mysql/data/
+$ touch /data/mysql/logs/mysqld.log
+$ chmod -R 777 /data/mysql/logs/
 $ chown mysql.mysql /data/mysql
+$ service mysqld start
 ```
