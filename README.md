@@ -141,12 +141,13 @@ $ sudo yum install perl perl-devel autoconf
 如果安装的MySQL5.7及以上的版本，在编译安装之前需要安装boost,因为高版本mysql需要boots库的安装才可以正常运行。否则会报CMake Error at cmake/boost.cmake:81错误
 MySQL5.7.22要求boost的版本是1.59，更高版本的不适用MySQL5.7.22
 ```shell
-$ cd /usr/local
+$ mkdir /usr/local/boost
 # $ wget http://www.sourceforge.net/projects/boost/files/boost/1.59.0/boost_1_59_0.tar.gz
 $ tar zxvf boost_1_59_0.tar.gz
 $ mv boost_1_59_0 boost
 ```
 在预编译安装MySQL时要加上-DWITH_BOOST=/usr/local/boost
+
 4.3、下载安装cmake 3.11.3
 ```shell
 # $ wget -c https://cmake.org/files/v3.11/cmake-3.11.3.tar.gz
